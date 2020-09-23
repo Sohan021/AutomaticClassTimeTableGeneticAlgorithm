@@ -1,0 +1,49 @@
+﻿@*@{
+        ViewData["Title"] = "Index";
+    }
+
+    <h1>Index</h1>
+
+    @using ClassTimeTable.Models.Domain
+    @model IEnumerable<Class>
+    @{
+        ViewData["Title"] = "Index";
+    }
+    <br />
+    <h2 class="text-primary text-center">Classes</h2>
+    <br />
+    <div class="text-center">
+        <a asp-action="Create" class="btn btn-outline-primary">Add Classes???</a>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+            <div>
+                <table class="table table-hover table-bordered" id="myTable">
+                    <tr class="table-primary">
+                        <th class="text-center">ScheduleId</th>
+                        <th class="text-center">Batch_Name</th>
+                        <th class="text-center">Course_Name</th>
+                        <th class="text-center">Room_Number</th>
+                        <th class="text-center">Instructor_Name</th>
+                        <th class="text-center">Meeting_Time</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@item.ScheduleId</td>
+                            <td class="text-center">@item.Batch.Name</td>
+                            <td class="text-center">@item.Course.CourseTitle</td>
+                            <td class="text-center">@item.Room.Name</td>
+                            <td class="text-center">@item.Course.Instructor.Name</td>
+                            <td class="text-center">@item.MeetingTime.Time</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+    </div>*@

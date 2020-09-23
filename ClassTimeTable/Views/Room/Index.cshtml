@@ -1,0 +1,39 @@
+﻿@using ClassTimeTable.Models.Domain
+@model IEnumerable<Room>
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<h2 class="text-primary text-center">Rooms</h2>
+<br />
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-outline-primary">Add New???</a>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+        <div>
+            <table class="table table-hover table-bordered" id="myTable">
+                <tr class="table-primary">
+                    <th class="text-center">Room_Name</th>
+                    <th class="text-center">Room_Number</th>
+                    <th class="text-center">Student_Capacity</th>
+                    <th class="text-center text-danger"><b>Actions</b></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@item.Name</td>
+                        <td class="text-center">@item.Number</td>
+                        <td class="text-center">@item.StudentCapacity</td>
+                        <partial name="_ButtonPartial" model="@item.Id" />
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
+</div>
